@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<plugin
+  xmlns="http://apache.org/cordova/ns/plugins/1.0"
+  xmlns:android="http://schemas.android.com/apk/res/android"
+  id="cordova-plugin-secure-share"
+  version="0.0.1">
+
+  <name>Secure Share</name>
+  <description>Cordova secure share plugin</description>
+  <license>MIT</license>
+  <keywords>cordova,secure,share</keywords>
+  <repo>https://github.com/okode/cordova-plugin-secure-share</repo>
+  <issue>https://github.com/okode/cordova-plugin-secure-share/issues</issue>
+
+  <js-module src="www/secureshare.js" name="secureshare">
+    <clobbers target="window.SecureShare" />
+  </js-module>
+
+  <!-- Android -->
+  <platform name="android">
+    <config-file target="res/xml/config.xml" parent="/*">
+      <feature name="SecureShare">
+        <param name="android-package" value="com.okode.secshare.SecureSharePlugin"/>
+      </feature>
+      <preference name="android-minSdkVersion" value="19"/>
+    </config-file>
+    <config-file target="AndroidManifest.xml" parent="/*">
+      <permission android:name="com.okode.permission.SECURE_SHARE" android:protectionLevel="signature" />
+      <uses-permission android:name="com.okode.permission.SECURE_SHARE"/>
+    </config-file>
+    <config-file target="AndroidManifest.xml" parent="application">
+      <provider
+        android:authorities="${applicationId}.providers.secureshare"
+        android:name="com.okode.secshare.SecureShareContentProvider"
+        android:exported="true"
+        android:permission="com.okode.permission.SECURE_SHARE">
+      </provider>
+    </config-file>
+    
+    <framework src="src/android/build.gradle" custom="true" type="gradleReference"/>
+    <source-file src="src/android/SecureSharePlugin.java" target-dir="src/com/okode/secshare" />
+    <source-file src="src/android/SecureShareHelper.java" target-dir="src/com/okode/secshare" />
+    <source-file src="src/android/SecureShareContentProvider.java" target-dir="src/com/okode/secshare" />
+  </platform>
+
+  <!-- iOS -->
+  <platform name="ios">
+    <config-file target="config.xml" parent="/*">
+      <feature name="SecureShare">
+        <param name="ios-package" value="CDVSecureShare" />
+      </feature>
+    </config-file>
+    <source-file src="src/ios/CDVSecureShare.swift"/>
+    <podspec>
+      <config>
+        <source url="https://cdn.cocoapods.org/"/>
+      </config>
+      <pods use-frameworks="true">
+        <pod name="KeychainAccess" spec="4.1.0"/>
+      </pods>
+    </podspec>
+    <config-file target="*-Info.plist" parent="AppIdentifierPrefix">
+      <string>$(AppIdentifierPrefix)</string>
+    </config-file>
+    <config-file target="*/Entitlements-Debug.plist" parent="keychain-access-groups">
+      <array>
+        <string>$(AppIdentifierPrefix)smartlock</string>
+      </array>
+    </config-file>
+    <config-file target="*/Entitlements-Release.plist" parent="keychain-access-groups">
+      <array>
+        <string>$(AppIdentifierPrefix)smartlock</string>
+      </array>
+    </config-file>
+  </platform>
+
+</plugin>

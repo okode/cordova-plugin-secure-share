@@ -1,0 +1,15 @@
+repositories {
+  jcenter()
+  google()
+}
+
+dependencies {
+  implementation 'androidx.security:security-crypto:1.1.0-alpha01'
+}
+
+android {
+  packagingOptions {
+    exclude 'META-INF/NOTICE'
+    exclude 'META-INF/LICENSE'
+  }
+}

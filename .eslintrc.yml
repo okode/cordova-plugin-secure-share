@@ -1,0 +1,4 @@
+root: true
+extends: "@cordova/eslint-config/browser"
+rules:
+  indent: [2, 2]

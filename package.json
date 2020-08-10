@@ -1,0 +1,36 @@
+{
+  "name": "cordova-plugin-secure-share",
+  "version": "0.0.1",
+  "description": "Cordova secure share plugin",
+  "types": "./types/index.d.ts",
+  "cordova": {
+    "id": "cordova-plugin-secure-share",
+    "platforms": [
+      "android",
+      "ios"
+    ]
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/okode/cordova-plugin-secure-share"
+  },
+  "bugs": {
+    "url": "https://github.com/okode/cordova-plugin-secure-share/issues"
+  },
+  "keywords": [
+    "cordova",
+    "secure",
+    "share",
+    "ecosystem:cordova",
+    "cordova-android",
+    "cordova-ios"
+  ],
+  "scripts": {
+    "lint": "eslint ."
+  },
+  "author": "Okode",
+  "license": "MIT",
+  "devDependencies": {
+    "@cordova/eslint-config": "^3.0.0"
+  }
+}
