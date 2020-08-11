@@ -6,16 +6,25 @@ export interface SecureSharePlugin {
    * 
    * @returns          A promise of void
    * 
-   * @errors           SECSHARE__UNKNOWN_ERROR: Unknown error prevented execution
+   * @errors           Error message from the cordova plugin
    */
   save(data: Record<string, string>): Promise<void>;
+
+  /**
+   * @description      Clears any data stored to be shared to other apps.
+   * 
+   * @returns          A promise of void
+   * 
+   * @errors           Error message from the cordova plugin
+   */
+  clear(): Promise<void>;
 
   /**
    * @description      Get data saved in secure share storage
    * 
    * @returns          A promise of a string to string map with the data saved
    * 
-   * @errors           SECSHARE__UNKNOWN_ERROR: Unknown error prevented execution
+   * @errors           Error message from the cordova plugin
    */
   retrieve(): Promise<Record<string, string>>;
 
@@ -27,7 +36,7 @@ export interface SecureSharePlugin {
    * 
    * @returns          A promise of a string to string map with the data saved
    * 
-   * @errors           SECSHARE__UNKNOWN_ERROR: Unknown error prevented execution
+   * @errors           Error message from the cordova plugin
    */
   retrieveFrom(packageName: string): Promise<Record<string, string>>;
 
