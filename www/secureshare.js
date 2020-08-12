@@ -18,7 +18,7 @@ SecureShare.prototype.save = function (data) {
 };
 
 SecureShare.prototype.clear = function (data) {
-  return exec('clear', [ {} ]);
+  return exec('save', [ {} ]);
 };
 
 SecureShare.prototype.retrieve = function () {
