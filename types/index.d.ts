@@ -22,7 +22,7 @@ export interface SecureSharePlugin {
   /**
    * @description      Get data saved in secure share storage
    * 
-   * @returns          A promise of a string to string map with the data saved
+   * @returns          A promise of a string to string map with the data saved. An empty map will be returned if no data is found
    * 
    * @errors           Error message from the cordova plugin
    */

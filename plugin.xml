@@ -64,12 +64,12 @@
     </config-file>
     <config-file target="*/Entitlements-Debug.plist" parent="keychain-access-groups">
       <array>
-        <string>$(AppIdentifierPrefix)smartlock</string>
+        <string>$(AppIdentifierPrefix)secureshare</string>
       </array>
     </config-file>
     <config-file target="*/Entitlements-Release.plist" parent="keychain-access-groups">
       <array>
-        <string>$(AppIdentifierPrefix)smartlock</string>
+        <string>$(AppIdentifierPrefix)secureshare</string>
       </array>
     </config-file>
   </platform>
