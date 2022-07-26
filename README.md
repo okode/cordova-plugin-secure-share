@@ -9,6 +9,23 @@ Cordova plugin to share private data between apps from the same developer based 
 3. Apps must use `cordova-android>=8.0.0`
 4. Apps must be compatible with Android-X library system
 
+Note: For devices running Android 11 or higher, you need to specify which packages are visible in order to access them. To do this, the following `<config-file>` element will be added to the `config.xml` file:
+
+```
+...
+<platform name="android">
+  ...
+  <config-file parent="/manifest/queries" target="AndroidManifest.xml">
+    <package android:name="com.mapfre.tarjetadesalud" />
+    <package android:name="com.mapfre.inversion" />
+    <package android:name="com.mapfre.mapfreapp" />
+  </config-file>
+  ...
+</platform>
+...
+```
+Android 11 package visibility: https://developer.android.com/about/versions/11/privacy/package-visibility
+
 ## iOS
 1. On iOS applications need to share the same Team ID
 2. Apps must use `cordova-ios>=5.0.0`
