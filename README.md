@@ -9,7 +9,7 @@ Cordova plugin to share private data between apps from the same developer based 
 3. Apps must use `cordova-android>=8.0.0`
 4. Apps must be compatible with Android-X library system
 
-Note: For devices running Android 11 or higher, you need to specify which packages are visible in order to access them. To do this, the following `<config-file>` element will be added to the `config.xml` file:
+**Note**: For apps compiling with a targetSdk 30+, it is needed to explicitly declare access to other apps. If we fail to do that, the functionality won't work on Android 11+ devices. In this case, you need to specify which packages are visible in order to access them. To do this, the following `<config-file>` element will be added to the `config.xml` file:
 
 ```
 ...
