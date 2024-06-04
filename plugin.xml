@@ -45,7 +45,6 @@
 
   <!-- iOS -->
   <platform name="ios">
-    <framework src="KeychainAccess" type="podspec" spec="4.1.0" />
     <config-file target="config.xml" parent="/*">
       <feature name="SecureShare">
         <param name="ios-package" value="CDVSecureShare" />
